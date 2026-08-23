@@ -117,18 +117,10 @@ export default function Home() {
               The latest aftermovies, recaps, and drops straight from the scene. Updated regularly via Instagram.
             </p>
             
-            {/* Free Embed Widget Placeholder */}
-            <div className="w-full min-h-[600px] bg-white/[0.02] rounded-none border-l-4 border-l-neon-green border-r-4 border-r-hint-red flex items-center justify-center p-8 backdrop-blur-sm relative overflow-hidden group">
-              <div className="absolute inset-0 bg-gradient-to-br from-hint-red/5 via-hint-yellow/5 to-neon-green/5 opacity-50 group-hover:opacity-100 transition-opacity duration-700" />
-              <div className="text-center relative z-10">
-                <div className="w-16 h-16 border-4 border-t-hint-red border-r-hint-yellow border-b-neon-green border-l-transparent rounded-full animate-spin mx-auto mb-6" />
-                <p className="text-white font-space font-bold tracking-widest uppercase mb-2">
-                  [Instagram Widget Placeholder]
-                </p>
-                <p className="text-sm text-gray-500 font-inter">
-                  Paste your Elfsight or SnapWidget HTML embed code here.
-                </p>
-              </div>
+            {/* Elfsight Instagram Feed */}
+            <div className="w-full min-h-[600px] bg-white/[0.02] rounded-none border-l-4 border-l-neon-green border-r-4 border-r-hint-red p-4 md:p-8 backdrop-blur-sm relative z-10 shadow-[0_0_30px_rgba(0,0,0,0.5)]">
+              <script src="https://elfsightcdn.com/platform.js" async></script>
+              <div className="elfsight-app-5dcd7e23-c833-453a-82b7-0b04988d18f3" data-elfsight-app-lazy="true"></div>
             </div>
           </motion.div>
         </div>
