@@ -41,17 +41,16 @@ export default function Home() {
 
       {/* Hero Section */}
       <section className="relative h-screen flex flex-col justify-center items-center text-center px-4 overflow-hidden">
-        {/* HTML5 Video Background */}
-        <video 
-          autoPlay 
-          loop 
-          muted 
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover opacity-50 mix-blend-screen grayscale-[30%]"
-        >
-          {/* External URL for video hosting */}
-          <source src="https://videos.pexels.com/video-files/3163534/3163534-uhd_2560_1440_30fps.mp4" type="video/mp4" />
-        </video>
+        {/* Vimeo Background Video */}
+        <div className="absolute inset-0 w-full h-full overflow-hidden opacity-50 mix-blend-screen grayscale-[30%] pointer-events-none">
+          <iframe 
+            src="https://player.vimeo.com/video/1221128478?background=1&autoplay=1&loop=1&muted=1&autopause=0&badge=0"
+            frameBorder="0"
+            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+            className="absolute top-1/2 left-1/2 w-[100vw] h-[56.25vw] min-h-[100vh] min-w-[177.77vh] -translate-x-1/2 -translate-y-1/2"
+            title="JoseVFX video header - Geel"
+          ></iframe>
+        </div>
         
         {/* Gradients to blend video into the background color */}
         <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/30" />
