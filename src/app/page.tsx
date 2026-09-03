@@ -711,7 +711,7 @@ export default function Home() {
                       JVFX
                     </div>
                   </div>
-                  <p className="font-space font-bold uppercase tracking-wider text-white text-lg">JOSSE TRUYENS</p>
+                  <p className="font-space font-bold uppercase tracking-wider text-white text-lg">JOSSE VANDENBEMDEN</p>
                   <p className="font-mono text-xs text-[#00E575] mt-1">DIRECTOR & CINEMATOGRAPHER</p>
                 </div>
 
@@ -768,11 +768,11 @@ export default function Home() {
                   </a>
 
                   <a
-                    href="mailto:truyensboris@proton.me"
+                    href="mailto:jossevdbd@gmail.com"
                     className="w-full flex items-center justify-between p-3 rounded bg-white/[0.04] hover:bg-white/10 border border-white/10 text-xs font-mono text-white transition-colors"
                   >
-                    <span>EMAIL INQUIRY</span>
-                    <span className="text-[#00E575]">SEND MAIL ↗</span>
+                    <span>DIRECT EMAIL</span>
+                    <span className="text-[#00E575]">jossevdbd@gmail.com ↗</span>
                   </a>
                 </div>
               </div>
@@ -948,7 +948,7 @@ export default function Home() {
           </div>
 
           <div>
-            <p>© {new Date().getFullYear()} JOSSE TRUYENS. ALL RIGHTS RESERVED.</p>
+            <p>© {new Date().getFullYear()} JOSSE VANDENBEMDEN. ALL RIGHTS RESERVED.</p>
           </div>
         </div>
       </footer>
