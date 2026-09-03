@@ -293,16 +293,16 @@ export default function Home() {
             className="mt-14 pt-8 border-t border-white/10 grid grid-cols-2 sm:grid-cols-4 gap-6 text-left max-w-3xl w-full"
           >
             <div>
-              <p className="font-mono text-[10px] text-gray-500 uppercase tracking-widest">CAMERA TECH</p>
-              <p className="font-space text-xs sm:text-sm font-semibold text-white mt-0.5">Sony FX Cinema</p>
+              <p className="font-mono text-[10px] text-gray-500 uppercase tracking-widest">FORMAT</p>
+              <p className="font-space text-xs sm:text-sm font-semibold text-white mt-0.5">Cinema 4K DCI</p>
             </div>
             <div>
               <p className="font-mono text-[10px] text-gray-500 uppercase tracking-widest">RECORDING</p>
-              <p className="font-space text-xs sm:text-sm font-semibold text-[#FFB800] mt-0.5">4K 120P High-FPS</p>
+              <p className="font-space text-xs sm:text-sm font-semibold text-[#FFB800] mt-0.5">120FPS High-Speed</p>
             </div>
             <div>
-              <p className="font-mono text-[10px] text-gray-500 uppercase tracking-widest">POST PIPELINE</p>
-              <p className="font-space text-xs sm:text-sm font-semibold text-white mt-0.5">DaVinci Studio</p>
+              <p className="font-mono text-[10px] text-gray-500 uppercase tracking-widest">POST-PRODUCTION</p>
+              <p className="font-space text-xs sm:text-sm font-semibold text-white mt-0.5">Custom Color Grade</p>
             </div>
             <div>
               <p className="font-mono text-[10px] text-gray-500 uppercase tracking-widest">LOCATION</p>
@@ -578,7 +578,7 @@ export default function Home() {
                   Sound System & Session Recaps
                 </h3>
                 <p className="text-sm text-gray-400 font-inter leading-relaxed mb-6">
-                  Specialized optical low-light gear tailored for dark club environments, haze, laser illumination, and massive acoustic pressure without sensor clipping or microphone distortion.
+                  Specialized optical low-light setups tailored for dark club environments, haze, laser illumination, and massive acoustic pressure without sensor clipping or microphone distortion.
                 </p>
               </div>
               <ul className="space-y-2 border-t border-white/10 pt-4 text-xs font-mono text-gray-300">
@@ -626,15 +626,15 @@ export default function Home() {
 
           {/* Production Hardware Terminal Bar */}
           <div className="mt-12 bg-[#10121A] border border-white/[0.08] rounded-lg p-5 flex flex-col lg:flex-row items-center justify-between gap-4 font-mono text-xs text-gray-400">
-            <span className="text-white font-bold tracking-wider">DIRECTOR GEAR SPECS:</span>
+            <span className="text-white font-bold tracking-wider">PRODUCTION STANDARDS:</span>
             <div className="flex flex-wrap items-center justify-center gap-6 text-center">
-              <span>SONY FX CINEMA SYSTEM</span>
+              <span>CINEMA-GRADE OPTICS</span>
               <span className="text-gray-600">•</span>
               <span>10-BIT 4:2:2 DCI 4K</span>
               <span className="text-gray-600">•</span>
               <span>120FPS SUB-BASS SLOW-MO</span>
               <span className="text-gray-600">•</span>
-              <span>DAVINCI COLOR PIPELINE</span>
+              <span>ANALOG FILM COLOR PROFILE</span>
             </div>
             <span className="text-[#00E575] font-semibold">LEUVEN // READY TO TRAVEL</span>
           </div>
