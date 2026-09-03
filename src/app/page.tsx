@@ -77,7 +77,6 @@ export default function Home() {
   const [mounted, setMounted] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState<"all" | "festivals" | "soundsystem" | "merch">("all");
   const [activeProjectModal, setActiveProjectModal] = useState<Project | null>(null);
-  const [selectedProjectType, setSelectedProjectType] = useState<string>("Festival Aftermovie");
   const [localTime, setLocalTime] = useState<string>("03:00:00 AM");
 
   useEffect(() => {
@@ -730,198 +729,128 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 8. INTERACTIVE BOOKING TERMINAL & INQUIRY FORM */}
-      <section id="contact" className="py-24 px-4 md:px-8 border-t border-white/[0.08] relative bg-[#0C0D14]">
-        <div className="max-w-5xl mx-auto">
+      {/* 8. SIMPLIFIED CONTACT & NEWSLETTER SECTION */}
+      <section id="contact" className="py-20 px-4 md:px-8 border-t border-white/[0.08] relative bg-[#0C0D14]">
+        <div className="max-w-4xl mx-auto">
           
-          <div className="text-center max-w-2xl mx-auto mb-16">
+          <div className="text-center mb-12">
             <div className="inline-flex items-center gap-2 font-mono text-xs text-[#00E575] tracking-widest uppercase mb-2">
               <span>// 05 INITIATE CONTACT</span>
-              <span className="w-6 h-[1px] bg-[#00E575]/50" />
-              <span>CALENDAR & BOOKING</span>
             </div>
             <h2 className="text-3xl sm:text-5xl font-space font-extrabold uppercase text-white tracking-tight">
-              Book a <span className="text-[#00E575]">Production</span>
+              Get in <span className="text-[#00E575]">Touch</span>
             </h2>
-            <p className="mt-3 text-gray-400 font-inter text-sm sm:text-base">
-              Festivals, sound clashes, club nights, or streetwear merchandise campaigns. Let’s capture the culture together.
+            <p className="mt-2 text-gray-400 font-inter text-sm sm:text-base">
+              Available for festival aftermovies, sound system clashes, and brand campaigns.
             </p>
+
+            {/* Direct Instant Reach Actions */}
+            <div className="mt-6 flex flex-wrap justify-center gap-4 text-xs font-mono">
+              <a
+                href="mailto:jossevdbd@gmail.com"
+                className="px-4 py-2.5 rounded bg-white/[0.05] hover:bg-white/10 border border-white/10 text-white flex items-center gap-2 transition-colors"
+              >
+                <span className="w-2 h-2 rounded-full bg-[#00E575]" />
+                <span>jossevdbd@gmail.com</span>
+                <span className="text-gray-500">↗</span>
+              </a>
+              <a
+                href="https://www.instagram.com/josse.vfx/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-4 py-2.5 rounded bg-white/[0.05] hover:bg-white/10 border border-white/10 text-white flex items-center gap-2 transition-colors"
+              >
+                <span className="w-2 h-2 rounded-full bg-[#FFB800]" />
+                <span>@josse.vfx</span>
+                <span className="text-gray-500">↗</span>
+              </a>
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            
-            {/* Direct Contact Options (Left Column) */}
-            <div className="space-y-4">
-              <div className="bg-[#12141F] border border-white/[0.08] p-6 rounded-lg">
-                <p className="font-mono text-xs text-gray-400 uppercase tracking-widest mb-1">DIRECT CONTACT</p>
-                <h3 className="font-space font-bold text-white text-lg mb-4">Fast Communication</h3>
-
-                <div className="space-y-3">
-                  <a
-                    href="https://www.instagram.com/josse.vfx/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full flex items-center justify-between p-3 rounded bg-white/[0.04] hover:bg-white/10 border border-white/10 text-xs font-mono text-white transition-colors"
-                  >
-                    <span>INSTAGRAM DIRECT</span>
-                    <span className="text-[#FFB800]">@josse.vfx ↗</span>
-                  </a>
-
-                  <a
-                    href="mailto:jossevdbd@gmail.com"
-                    className="w-full flex items-center justify-between p-3 rounded bg-white/[0.04] hover:bg-white/10 border border-white/10 text-xs font-mono text-white transition-colors"
-                  >
-                    <span>DIRECT EMAIL</span>
-                    <span className="text-[#00E575]">jossevdbd@gmail.com ↗</span>
-                  </a>
+          {/* Clean Streamlined Contact Form */}
+          <div className="bg-[#12141F] border border-white/[0.08] p-6 sm:p-8 rounded-lg mb-8">
+            <form
+              action="https://formspree.io/f/YOUR_FORMSPREE_ID"
+              method="POST"
+              className="space-y-4"
+            >
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="block font-mono text-[11px] text-gray-400 uppercase tracking-wider mb-1.5">
+                    NAME
+                  </label>
+                  <input
+                    type="text"
+                    name="name"
+                    required
+                    placeholder="Your name or organization"
+                    className="w-full bg-black/60 border border-white/15 px-3.5 py-2.5 rounded text-sm font-inter text-white placeholder-gray-500 focus:outline-none focus:border-[#00E575] transition-colors"
+                  />
                 </div>
-              </div>
-
-              {/* Newsletter / Sound System Dispatch */}
-              <div className="bg-[#12141F] border border-white/[0.08] p-6 rounded-lg">
-                <p className="font-mono text-xs text-[#FFB800] uppercase tracking-widest mb-1">DISPATCH LIST</p>
-                <h3 className="font-space font-bold text-white text-base mb-2">Sound System Network</h3>
-                <p className="text-xs text-gray-400 font-inter mb-4">
-                  Get notified when new festival aftermovies, unreleased dub sets, and merch shoots drop.
-                </p>
-
-                <form
-                  action="https://formspree.io/f/YOUR_NEWSLETTER_ID"
-                  method="POST"
-                  className="space-y-3"
-                >
+                <div>
+                  <label className="block font-mono text-[11px] text-gray-400 uppercase tracking-wider mb-1.5">
+                    EMAIL
+                  </label>
                   <input
                     type="email"
-                    name="newsletter_email"
+                    name="email"
                     required
-                    placeholder="promoter@festival.com"
-                    className="w-full bg-black/60 border border-white/15 px-3.5 py-2.5 rounded text-xs font-mono text-white placeholder-gray-500 focus:outline-none focus:border-[#00E575]"
+                    placeholder="you@email.com"
+                    className="w-full bg-black/60 border border-white/15 px-3.5 py-2.5 rounded text-sm font-inter text-white placeholder-gray-500 focus:outline-none focus:border-[#00E575] transition-colors"
                   />
-                  <button
-                    type="submit"
-                    className="w-full py-2.5 bg-white/[0.08] hover:bg-[#00E575] text-white hover:text-black font-mono font-bold text-xs uppercase tracking-wider rounded transition-colors"
-                  >
-                    SUBSCRIBE DISPATCH
-                  </button>
-                </form>
+                </div>
               </div>
-            </div>
 
-            {/* Main Interactive Booking Form (2 Columns) */}
-            <div className="lg:col-span-2 bg-[#12141F] border border-white/[0.08] p-6 sm:p-8 rounded-lg">
-              
-              {/* Project Type Selector Chips */}
-              <div className="mb-6">
-                <label className="block font-mono text-xs text-gray-400 uppercase tracking-widest mb-3">
-                  1. SELECT PRODUCTION TYPE
+              <div>
+                <label className="block font-mono text-[11px] text-gray-400 uppercase tracking-wider mb-1.5">
+                  MESSAGE / PROJECT DETAILS
                 </label>
-                <div className="flex flex-wrap gap-2">
-                  {[
-                    "Festival Aftermovie",
-                    "Club & Dub Session",
-                    "Merchandise Campaign",
-                    "Music Video",
-                    "Other / Custom",
-                  ].map((type) => (
-                    <button
-                      key={type}
-                      type="button"
-                      onClick={() => setSelectedProjectType(type)}
-                      className={`px-3.5 py-2 rounded text-xs font-mono tracking-wider transition-all cursor-pointer ${
-                        selectedProjectType === type
-                          ? "bg-[#00E575] text-black font-bold shadow-[0_0_15px_rgba(0,229,117,0.3)]"
-                          : "bg-white/[0.04] text-gray-300 hover:text-white border border-white/10"
-                      }`}
-                    >
-                      {type}
-                    </button>
-                  ))}
-                </div>
+                <textarea
+                  name="message"
+                  rows={4}
+                  required
+                  placeholder="Tell me about your event date, sound system, festival, or merchandise project..."
+                  className="w-full bg-black/60 border border-white/15 px-3.5 py-2.5 rounded text-sm font-inter text-white placeholder-gray-500 focus:outline-none focus:border-[#00E575] transition-colors resize-none"
+                />
               </div>
 
-              {/* Formspree Form */}
-              <form
-                action="https://formspree.io/f/YOUR_FORMSPREE_ID"
-                method="POST"
-                className="space-y-5"
+              <button
+                type="submit"
+                className="w-full py-3.5 bg-[#00E575] hover:bg-white text-black font-space font-extrabold uppercase text-xs sm:text-sm tracking-widest rounded transition-all cursor-pointer shadow-[0_0_20px_rgba(0,229,117,0.2)]"
               >
-                {/* Hidden field storing selected project type */}
-                <input type="hidden" name="project_type" value={selectedProjectType} />
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block font-mono text-xs text-gray-400 uppercase tracking-wider mb-2">
-                      YOUR NAME / PROMOTER
-                    </label>
-                    <input
-                      type="text"
-                      name="name"
-                      required
-                      placeholder="e.g. Marcus Roots"
-                      className="w-full bg-black/60 border border-white/15 px-4 py-3 rounded text-sm font-inter text-white placeholder-gray-500 focus:outline-none focus:border-[#00E575] transition-colors"
-                    />
-                  </div>
-                  <div>
-                    <label className="block font-mono text-xs text-gray-400 uppercase tracking-wider mb-2">
-                      EMAIL ADDRESS
-                    </label>
-                    <input
-                      type="email"
-                      name="email"
-                      required
-                      placeholder="marcus@soundsystem.be"
-                      className="w-full bg-black/60 border border-white/15 px-4 py-3 rounded text-sm font-inter text-white placeholder-gray-500 focus:outline-none focus:border-[#00E575] transition-colors"
-                    />
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block font-mono text-xs text-gray-400 uppercase tracking-wider mb-2">
-                      EVENT / SHOOT DATE
-                    </label>
-                    <input
-                      type="text"
-                      name="date"
-                      placeholder="e.g. August 2025"
-                      className="w-full bg-black/60 border border-white/15 px-4 py-3 rounded text-sm font-inter text-white placeholder-gray-500 focus:outline-none focus:border-[#FFB800] transition-colors"
-                    />
-                  </div>
-                  <div>
-                    <label className="block font-mono text-xs text-gray-400 uppercase tracking-wider mb-2">
-                      LOCATION / VENUE
-                    </label>
-                    <input
-                      type="text"
-                      name="location"
-                      placeholder="e.g. Leuven / Antwerp"
-                      className="w-full bg-black/60 border border-white/15 px-4 py-3 rounded text-sm font-inter text-white placeholder-gray-500 focus:outline-none focus:border-[#FFB800] transition-colors"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block font-mono text-xs text-gray-400 uppercase tracking-wider mb-2">
-                    PROJECT SCOPE & VISION
-                  </label>
-                  <textarea
-                    name="message"
-                    rows={4}
-                    required
-                    placeholder="Tell me about the sound system, festival scale, turnaround deadline, and specific deliverables you need..."
-                    className="w-full bg-black/60 border border-white/15 px-4 py-3 rounded text-sm font-inter text-white placeholder-gray-500 focus:outline-none focus:border-[#00E575] transition-colors resize-none"
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  className="w-full py-4 bg-gradient-to-r from-[#FF2A2A] via-[#FFB800] to-[#00E575] text-black font-space font-extrabold uppercase text-sm tracking-widest rounded hover:opacity-95 hover:shadow-[0_0_25px_rgba(0,229,117,0.3)] transition-all cursor-pointer"
-                >
-                  SEND PRODUCTION INQUIRY ↗
-                </button>
-              </form>
-            </div>
+                SEND MESSAGE ↗
+              </button>
+            </form>
           </div>
+
+          {/* Minimal Clean Newsletter Strip */}
+          <div className="bg-[#12141F]/60 border border-white/[0.06] p-5 rounded-lg flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="text-center sm:text-left">
+              <p className="font-space font-bold text-white text-sm">Sound System Dispatch</p>
+              <p className="text-xs text-gray-400 font-inter">Receive new festival aftermovies and merch drop visual updates.</p>
+            </div>
+
+            <form
+              action="https://formspree.io/f/YOUR_NEWSLETTER_ID"
+              method="POST"
+              className="flex w-full sm:w-auto gap-2"
+            >
+              <input
+                type="email"
+                name="newsletter_email"
+                required
+                placeholder="Enter your email"
+                className="bg-black/60 border border-white/15 px-3.5 py-2 rounded text-xs font-mono text-white placeholder-gray-500 focus:outline-none focus:border-[#FFB800] w-full sm:w-64"
+              />
+              <button
+                type="submit"
+                className="px-4 py-2 bg-white/[0.08] hover:bg-[#FFB800] text-white hover:text-black font-mono font-bold text-xs uppercase tracking-wider rounded transition-colors whitespace-nowrap cursor-pointer"
+              >
+                SUBSCRIBE
+              </button>
+            </form>
+          </div>
+
         </div>
       </section>
 
