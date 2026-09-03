@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Inter } from "next/font/google";
+import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -12,9 +12,22 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-mono",
+  subsets: ["latin"],
+});
+
 export const metadata: Metadata = {
-  title: "JosseVFX | Videographer",
-  description: "Leuven-based videographer capturing the underground dub scene and beyond.",
+  title: "JOSSEVFX | Cinema for Dub & Sound System Culture",
+  description: "Leuven-based director & videographer capturing festival aftermovies, sound system clashes, and underground merchandise drops.",
+  keywords: ["Videographer Leuven", "Dub Festival Aftermovie", "Sound System Culture", "Reggae Videography", "Music Video Belgium", "JosseVFX"],
+  openGraph: {
+    title: "JOSSEVFX | Cinematographer & Editor",
+    description: "Festival Aftermovies • Sound System Culture • Heavy Merch Campaigns",
+    type: "website",
+    locale: "en_BE",
+    url: "https://jossevfx.com",
+  },
 };
 
 export default function RootLayout({
@@ -23,9 +36,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth bg-[#08080A]">
       <body
-        className={`${spaceGrotesk.variable} ${inter.variable} font-inter antialiased selection:bg-neon-green selection:text-black`}
+        className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable} font-inter antialiased bg-[#08080A] text-[#F3F4F6] selection:bg-[#00E575] selection:text-black`}
       >
         {children}
       </body>
