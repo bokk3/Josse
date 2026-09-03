@@ -20,12 +20,12 @@ interface Project {
 
 const PROJECTS: Project[] = [
   {
-    id: "dub-forest-2024",
+    id: "dub-forest-2026",
     title: "Dub Forest Gathering",
     category: "festivals",
     categoryLabel: "FESTIVAL AFTERMOVIE",
     format: "4K DCI // 24FPS",
-    year: "2024",
+    year: "2026",
     runtime: "03:45",
     role: "Lead Cinematography • Bass-Synced Edit • Color Grade",
     description: "3-day outdoor gathering recap capturing woodland sound systems, nighttime laser arrays, and heavyweight crowd energy.",
@@ -38,7 +38,7 @@ const PROJECTS: Project[] = [
     category: "soundsystem",
     categoryLabel: "SOUND SYSTEM CLASH",
     format: "4K UHD // 60FPS",
-    year: "2024",
+    year: "2026",
     runtime: "02:18",
     role: "Low-Light Cinematography • Direct Desk Audio Sync",
     description: "Raw, intimate documentation of hand-built speaker stacks, preamp manipulation, and sub-bass vibration.",
@@ -51,7 +51,7 @@ const PROJECTS: Project[] = [
     category: "merch",
     categoryLabel: "BRAND & MERCH CAMPAIGN",
     format: "9:16 VERTICAL + 16:9",
-    year: "2024",
+    year: "2025",
     runtime: "01:10",
     role: "Creative Direction • Edit • Sound Design",
     description: "Gritty urban lookbook campaign for underground sound system merchandise. Tailored for Instagram Reels & TikTok virality.",
@@ -64,7 +64,7 @@ const PROJECTS: Project[] = [
     category: "festivals",
     categoryLabel: "CLUB & FESTIVAL RECAP",
     format: "4K UHD // 120FPS SLOW-MO",
-    year: "2023",
+    year: "2025",
     runtime: "01:50",
     role: "Run-and-Gun Cinematography • 48-Hour Turnaround",
     description: "High-voltage club recap with explosive bass drops, strobe work, and authentic dancefloor immersion.",
@@ -229,7 +229,7 @@ export default function Home() {
           >
             <span className="w-2 h-2 rounded-full bg-[#00E575] animate-ping" />
             <span className="font-mono text-xs text-gray-200 tracking-wide">
-              LEUVEN, BE • BOOKING FESTIVALS & SESSIONS 2024–2025
+              LEUVEN, BE • NOW BOOKING FESTIVALS & SESSIONS 2026–2027
             </span>
           </motion.div>
 
