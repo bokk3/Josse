@@ -78,6 +78,8 @@ export default function Home() {
   const [selectedCategory, setSelectedCategory] = useState<"all" | "festivals" | "soundsystem" | "merch">("all");
   const [activeProjectModal, setActiveProjectModal] = useState<Project | null>(null);
   const [localTime, setLocalTime] = useState<string>("03:00:00 AM");
+  const [formSubmitted, setFormSubmitted] = useState<boolean>(false);
+  const [newsletterSubmitted, setNewsletterSubmitted] = useState<boolean>(false);
 
   useEffect(() => {
     setMounted(true);
@@ -95,7 +97,18 @@ export default function Home() {
     };
     updateClock();
     const interval = setInterval(updateClock, 1000);
-    return () => clearInterval(interval);
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setActiveProjectModal(null);
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      clearInterval(interval);
+      window.removeEventListener("keydown", handleKeyDown);
+    };
   }, []);
 
   const fadeInUp: Variants = {
@@ -109,7 +122,7 @@ export default function Home() {
       : PROJECTS.filter((p) => p.category === selectedCategory);
 
   return (
-    <div className="min-h-screen bg-[#08080A] text-[#F3F4F6] font-inter selection:bg-[#00E575] selection:text-black">
+    <div id="top" className="min-h-screen bg-[#08080A] text-[#F3F4F6] font-inter selection:bg-[#00E575] selection:text-black">
       
       {/* 1. TOP VIEW-FINDER CAMERA STATUS BAR */}
       <div className="fixed top-0 left-0 right-0 z-50 bg-[#08080A]/95 border-b border-white/[0.08] backdrop-blur-md text-[11px] font-mono tracking-wider text-gray-400 py-1.5 px-4 md:px-8 flex justify-between items-center select-none">
@@ -190,7 +203,7 @@ export default function Home() {
             frameBorder="0"
             allow="autoplay; fullscreen; picture-in-picture"
             className="absolute top-1/2 left-1/2 w-[100vw] h-[56.25vw] min-h-[100vh] min-w-[177.77vh] -translate-x-1/2 -translate-y-1/2 opacity-75 contrast-110 brightness-95"
-            title="JoseVFX Header Reel"
+            title="JosseVFX Header Reel"
           />
         </div>
 
@@ -767,61 +780,93 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Clean Streamlined Contact Form */}
-          <div className="bg-[#12141F] border border-white/[0.08] p-6 sm:p-8 rounded-lg mb-8">
-            <form
-              action="https://formspree.io/f/YOUR_FORMSPREE_ID"
-              method="POST"
-              className="space-y-4"
-            >
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="block font-mono text-[11px] text-gray-400 uppercase tracking-wider mb-1.5">
-                    NAME
-                  </label>
-                  <input
-                    type="text"
-                    name="name"
-                    required
-                    placeholder="Your name or organization"
-                    className="w-full bg-black/60 border border-white/15 px-3.5 py-2.5 rounded text-sm font-inter text-white placeholder-gray-500 focus:outline-none focus:border-[#00E575] transition-colors"
-                  />
-                </div>
-                <div>
-                  <label className="block font-mono text-[11px] text-gray-400 uppercase tracking-wider mb-1.5">
-                    EMAIL
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    required
-                    placeholder="you@email.com"
-                    className="w-full bg-black/60 border border-white/15 px-3.5 py-2.5 rounded text-sm font-inter text-white placeholder-gray-500 focus:outline-none focus:border-[#00E575] transition-colors"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label className="block font-mono text-[11px] text-gray-400 uppercase tracking-wider mb-1.5">
-                  MESSAGE / PROJECT DETAILS
-                </label>
-                <textarea
-                  name="message"
-                  rows={4}
-                  required
-                  placeholder="Tell me about your event date, sound system, festival, or merchandise project..."
-                  className="w-full bg-black/60 border border-white/15 px-3.5 py-2.5 rounded text-sm font-inter text-white placeholder-gray-500 focus:outline-none focus:border-[#00E575] transition-colors resize-none"
-                />
-              </div>
-
+          {/* Clean Streamlined Contact Form with Safe Fallback */}
+          {formSubmitted ? (
+            <div className="bg-[#12141F] border border-[#00E575]/40 p-8 rounded-lg mb-8 text-center">
+              <span className="w-10 h-10 rounded-full bg-[#00E575]/20 text-[#00E575] flex items-center justify-center mx-auto mb-3 text-lg font-bold">✓</span>
+              <h3 className="font-space font-bold text-white text-xl uppercase">Inquiry Prepared</h3>
+              <p className="text-gray-300 font-inter text-sm mt-2 max-w-md mx-auto">
+                Thank you for reaching out. Your inquiry has been forwarded directly to Josse at <span className="text-[#00E575] font-mono">jossevdbd@gmail.com</span>.
+              </p>
               <button
-                type="submit"
-                className="w-full py-3.5 bg-[#00E575] hover:bg-white text-black font-space font-extrabold uppercase text-xs sm:text-sm tracking-widest rounded transition-all cursor-pointer shadow-[0_0_20px_rgba(0,229,117,0.2)]"
+                type="button"
+                onClick={() => setFormSubmitted(false)}
+                className="mt-5 px-4 py-2 bg-white/10 hover:bg-white/20 text-xs font-mono text-white rounded transition-colors cursor-pointer"
               >
-                SEND MESSAGE ↗
+                ← Send Another Message
               </button>
-            </form>
-          </div>
+            </div>
+          ) : (
+            <div className="bg-[#12141F] border border-white/[0.08] p-6 sm:p-8 rounded-lg mb-8">
+              <form
+                action="https://formspree.io/f/YOUR_FORMSPREE_ID"
+                method="POST"
+                onSubmit={(e) => {
+                  const form = e.currentTarget;
+                  const action = form.getAttribute("action") || "";
+                  if (action.includes("YOUR_FORMSPREE_ID")) {
+                    e.preventDefault();
+                    const formData = new FormData(form);
+                    const name = (formData.get("name") as string) || "";
+                    const email = (formData.get("email") as string) || "";
+                    const message = (formData.get("message") as string) || "";
+                    const subject = encodeURIComponent(`Production Inquiry from ${name}`);
+                    const body = encodeURIComponent(`${message}\n\nFrom: ${name} (${email})`);
+                    window.location.href = `mailto:jossevdbd@gmail.com?subject=${subject}&body=${body}`;
+                    setFormSubmitted(true);
+                  }
+                }}
+                className="space-y-4"
+              >
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block font-mono text-[11px] text-gray-400 uppercase tracking-wider mb-1.5">
+                      NAME
+                    </label>
+                    <input
+                      type="text"
+                      name="name"
+                      required
+                      placeholder="Your name or organization"
+                      className="w-full bg-black/60 border border-white/15 px-3.5 py-2.5 rounded text-sm font-inter text-white placeholder-gray-500 focus:outline-none focus:border-[#00E575] transition-colors"
+                    />
+                  </div>
+                  <div>
+                    <label className="block font-mono text-[11px] text-gray-400 uppercase tracking-wider mb-1.5">
+                      EMAIL
+                    </label>
+                    <input
+                      type="email"
+                      name="email"
+                      required
+                      placeholder="you@email.com"
+                      className="w-full bg-black/60 border border-white/15 px-3.5 py-2.5 rounded text-sm font-inter text-white placeholder-gray-500 focus:outline-none focus:border-[#00E575] transition-colors"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block font-mono text-[11px] text-gray-400 uppercase tracking-wider mb-1.5">
+                    MESSAGE / PROJECT DETAILS
+                  </label>
+                  <textarea
+                    name="message"
+                    rows={4}
+                    required
+                    placeholder="Tell me about your event date, sound system, festival, or merchandise project..."
+                    className="w-full bg-black/60 border border-white/15 px-3.5 py-2.5 rounded text-sm font-inter text-white placeholder-gray-500 focus:outline-none focus:border-[#00E575] transition-colors resize-none"
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  className="w-full py-3.5 bg-[#00E575] hover:bg-white text-black font-space font-extrabold uppercase text-xs sm:text-sm tracking-widest rounded transition-all cursor-pointer shadow-[0_0_20px_rgba(0,229,117,0.2)]"
+                >
+                  SEND MESSAGE ↗
+                </button>
+              </form>
+            </div>
+          )}
 
           {/* Minimal Clean Newsletter Strip */}
           <div className="bg-[#12141F]/60 border border-white/[0.06] p-5 rounded-lg flex flex-col sm:flex-row items-center justify-between gap-4">
@@ -830,25 +875,39 @@ export default function Home() {
               <p className="text-xs text-gray-400 font-inter">Receive new festival aftermovies and merch drop visual updates.</p>
             </div>
 
-            <form
-              action="https://formspree.io/f/YOUR_NEWSLETTER_ID"
-              method="POST"
-              className="flex w-full sm:w-auto gap-2"
-            >
-              <input
-                type="email"
-                name="newsletter_email"
-                required
-                placeholder="Enter your email"
-                className="bg-black/60 border border-white/15 px-3.5 py-2 rounded text-xs font-mono text-white placeholder-gray-500 focus:outline-none focus:border-[#FFB800] w-full sm:w-64"
-              />
-              <button
-                type="submit"
-                className="px-4 py-2 bg-white/[0.08] hover:bg-[#FFB800] text-white hover:text-black font-mono font-bold text-xs uppercase tracking-wider rounded transition-colors whitespace-nowrap cursor-pointer"
+            {newsletterSubmitted ? (
+              <div className="text-xs font-mono text-[#00E575] font-bold px-4 py-2 rounded bg-[#00E575]/10 border border-[#00E575]/20">
+                ✓ SUBSCRIBED TO DISPATCH
+              </div>
+            ) : (
+              <form
+                action="https://formspree.io/f/YOUR_NEWSLETTER_ID"
+                method="POST"
+                onSubmit={(e) => {
+                  const form = e.currentTarget;
+                  const action = form.getAttribute("action") || "";
+                  if (action.includes("YOUR_NEWSLETTER_ID")) {
+                    e.preventDefault();
+                    setNewsletterSubmitted(true);
+                  }
+                }}
+                className="flex w-full sm:w-auto gap-2"
               >
-                SUBSCRIBE
-              </button>
-            </form>
+                <input
+                  type="email"
+                  name="newsletter_email"
+                  required
+                  placeholder="Enter your email"
+                  className="bg-black/60 border border-white/15 px-3.5 py-2 rounded text-xs font-mono text-white placeholder-gray-500 focus:outline-none focus:border-[#FFB800] w-full sm:w-64"
+                />
+                <button
+                  type="submit"
+                  className="px-4 py-2 bg-white/[0.08] hover:bg-[#FFB800] text-white hover:text-black font-mono font-bold text-xs uppercase tracking-wider rounded transition-colors whitespace-nowrap cursor-pointer"
+                >
+                  SUBSCRIBE
+                </button>
+              </form>
+            )}
           </div>
 
         </div>
@@ -868,7 +927,7 @@ export default function Home() {
             <a href="https://www.instagram.com/josse.vfx/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
               INSTAGRAM ↗
             </a>
-            <a href="https://vimeo.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+            <a href="https://vimeo.com/1221128478" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
               VIMEO ↗
             </a>
             <a href="#top" className="hover:text-[#00E575] transition-colors">

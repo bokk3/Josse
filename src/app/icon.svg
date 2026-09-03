@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <rect width="32" height="32" rx="6" fill="#08080A"/>
+  <!-- Reggae Tri-Color Top Accent -->
+  <rect x="4" y="4" width="8" height="2.5" rx="1" fill="#FF2A2A"/>
+  <rect x="12" y="4" width="8" height="2.5" rx="1" fill="#FFB800"/>
+  <rect x="20" y="4" width="8" height="2.5" rx="1" fill="#00E575"/>
+  <!-- J lettermark -->
+  <text x="50%" y="72%" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="16" fill="#FFFFFF" text-anchor="middle" dominant-baseline="middle">J</text>
+  <circle cx="24" cy="22" r="2" fill="#00E575"/>
+</svg>
