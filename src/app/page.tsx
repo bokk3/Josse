@@ -256,9 +256,9 @@ export default function Home() {
             initial={{ opacity: 0, y: 25 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.4 }}
-            className="mt-4 text-base sm:text-lg text-gray-300 max-w-2xl font-inter leading-relaxed"
+            className="mt-4 text-base sm:text-xl text-white font-bold max-w-2xl font-inter leading-relaxed"
           >
-            Capturing the raw bassweight, dancefloor energy, and authentic community of reggae festivals, sound system clashes, and underground merchandise drops.
+            Visuals built for the Sound system scene.. Reggae-festivals and Reggae-Dub partys
           </motion.p>
 
           {/* Action CTAs */}
